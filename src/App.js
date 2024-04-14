@@ -14,31 +14,34 @@ function App() {
   const [alert, setAlert] = useState({boolean: false, type: ""});
 
   const sendRequest = async () => {
-    setShowData(false);
-    setKey(key + 1)
-    const regex = /^\d{3}-\d{5}$|^\d{8}$/;
-    if (routingForm === "" || regex.test(routingForm) === false) {
-      return setAlert({boolean: true, type: "regex"});
-    } else {
-      setAlert({boolean: false, type: ""});
-    }
-    const bankCode = extractBankCode();
-    const url =
-      "https://uvz9pac8ik.execute-api.us-east-2.amazonaws.com/dev/bank";
-    const body = `?instNum=${bankCode}`;
-    const response = await axios.get(url + body);
-    console.log(response);
-    if (response.status === 200 && !isEmpty(response.data.Item)) {
-      setBankData({
-        bankCode: response.data.Item.instNum,
-        bankName: response.data.Item.instName,
-      });
-      setShowData(true);
-      setRoutingForm("");
-      setKey(key + 1);
-    } else if (response.status === 200 && isEmpty(response.data.Item)) {
-      setAlert({boolean: true, type: "notFound"})
-    } else {
+    try {
+      setShowData(false);
+      setKey(key + 1)
+      const regex = /^\d{3}-\d{5}$|^\d{8}$/;
+      if (routingForm === "" || regex.test(routingForm) === false) {
+        return setAlert({boolean: true, type: "regex"});
+      } else {
+        setAlert({boolean: false, type: ""});
+      }
+      const bankCode = extractBankCode();
+      const url =
+        "https://uvz9pac8ik.execute-api.us-east-2.amazonaws.com/dev/bank";
+      const body = `?instNum=${bankCode}`;
+      const response = await axios.get(url + body);
+      if (response.status === 200 && !isEmpty(response.data.Item)) {
+        setBankData({
+          bankCode: response.data.Item.instNum,
+          bankName: response.data.Item.instName,
+        });
+        setShowData(true);
+        setRoutingForm("");
+        setKey(key + 1);
+      } else if (response.status === 200 && isEmpty(response.data.Item)) {
+        setAlert({boolean: true, type: "notFound"})
+      } else {
+        setAlert({boolean: true, type: "error"})
+      }
+    } catch (e) {
       setAlert({boolean: true, type: "error"})
     }
   };
