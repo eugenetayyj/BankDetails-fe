@@ -2,6 +2,10 @@
 
 This is the frontend for the Bank Code API. It's part of a larger AWS project to gain exposure to different AWS services through hands-on experience. This frontend is a React application and is hosted on AWS Amplify.
 
+## Access the API Frontend
+
+You can access the API frontend [here](https://master.d192lb2rt8wqcs.amplifyapp.com/).
+
 ## Why AWS Amplify?
 
 The motivation for using AWS Amplify over Route 53 and S3 is primarily due to cost savings. Route 53 requires payment, whereas AWS Amplify offers a more cost-effective solution. Additionally, AWS Amplify provides an easy setup process, making it a convenient choice for hosting this application.
