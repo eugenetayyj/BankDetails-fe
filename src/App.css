@@ -3,7 +3,12 @@
 }
 
 .App-header {
-  background: linear-gradient(to right bottom, rgba(255, 145, 0, 0.747), rgba(32, 112, 224, 0.7));
+  background: linear-gradient(
+    to left bottom,
+    rgb(30, 26, 67),
+    rgb(47, 42, 96) 45%,
+    rgb(30, 26, 67)
+  );
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -12,13 +17,74 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
-.paper {
-  padding: 20px;
-  border-radius: 10px;
-  margin: 20px;
-  width: 80%;
-  max-width: 600px;
-  justify-content: space-between;
-  align-items: center;
+.routing-form {
+  width: 100%;
   display: flex;
+  margin-bottom: 28px;
+}
+.Page-header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  margin-bottom: 20px;
+}
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: start;
+  padding-right: 45%;
+}
+.validate-button {
+  background: linear-gradient(to right, rgb(140, 135, 202), rgb(77, 72, 140));
+  color: white;
+  border-radius: 0px 5px 5px 0px;
+  border: none;
+  padding: 10px 15px;
+}
+.input {
+  flex: 1;
+  width: 80%;
+  background-color: white;
+  border: none;
+  border-radius: 5px 0px 0px 5px;
+  padding: 10px 15px;
+}
+.input:focus {
+  outline: 100px;
+}
+.input::placeholder {
+  color: rgb(189, 189, 189);
+}
+.bank-data {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 70%;
+  padding: 14px 18px;
+  font-size: 16px;
+  font-weight: 500;
+}
+.bank-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+}
+.bank-value {
+  display: flex;
+  flex-direction: row;
+}
+.docs {
+  display: flex;
+  align-items: center;
+  justify-items: center;
+  font-size: 20px;
+  font-weight: 500;
+  background-color: white;
+  color: black;
+  border-radius: 10px;
+  padding: 5px 10px;
+  cursor: pointer
 }
