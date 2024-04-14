@@ -21,7 +21,7 @@ function App() {
     if (routingForm === "" || regex.test(routingForm) === false) {
       return setAlert(true);
     } else {
-      setAlert(false)
+      setAlert(false);
     }
     const bankCode = extractBankCode();
     const url =
@@ -52,13 +52,12 @@ function App() {
     navigator.clipboard.writeText(text);
   };
 
-  const openDocs = () => {
-  };
-
   return (
     <div className="App">
       <header className="App-header">
-      <DocsMenu />
+        <div style={{ position: "absolute", top: 50, right: 80 }}>
+          <DocsMenu />
+        </div>
         <div className="content">
           <div className="Page-header">
             <div
@@ -84,9 +83,7 @@ function App() {
               (non Canadian wires)
             </div>
           </div>
-          {
-            alert && <RegexAlert key={key}/>
-          }
+          {alert && <RegexAlert key={key} />}
           <div className="routing-form">
             <input
               id="outlined-basic"
