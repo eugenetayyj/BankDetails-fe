@@ -19,10 +19,10 @@ The frontend is developed lightly and is not currently responsive for mobile dev
 While there are currently no plans to make the frontend responsive for mobile devices, future developments might include this feature. However, at present, there is no use case for mobile usage.
 
 ## AWS Infrastructure
-![alt text](image.png)
+![alt text](image.png)  
 [Link to Design](https://www.figma.com/file/6mJuiHg02PaUauugLAe5jo/Untitled?type=design&node-id=0%3A1&mode=dev&t=MMf4z1UdkeQighjr-1)
 
 
 ## Frameworks and Language
-![alt text](image-2.png)
+![alt text](image-2.png)  
 [Link to Design](https://www.figma.com/file/6mJuiHg02PaUauugLAe5jo/Untitled?type=design&node-id=0%3A1&mode=dev&t=MMf4z1UdkeQighjr-1)
