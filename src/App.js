@@ -3,25 +3,24 @@ import axios from "axios";
 import { useState } from "react";
 import "./App.css";
 import ContentCopyIcon from "@mui/icons-material/ContentCopy";
-import RegexAlert from "./components/Alert";
+import ErrorAlert from "./components/Alert";
 import DocsMenu from "./components/DocMenu";
 
 function App() {
   const [routingForm, setRoutingForm] = useState("");
-  const [showData, setShowData] = useState(true);
-  const [bankData, setBankData] = useState({
-    bankCode: "001",
-    bankName: "Bank of Montreal",
-  });
+  const [showData, setShowData] = useState(false);
+  const [bankData, setBankData] = useState({});
   const [key, setKey] = useState(0);
-  const [alert, setAlert] = useState(false);
+  const [alert, setAlert] = useState({boolean: false, type: ""});
 
   const sendRequest = async () => {
+    setShowData(false);
+    setKey(key + 1)
     const regex = /^\d{3}-\d{5}$|^\d{8}$/;
     if (routingForm === "" || regex.test(routingForm) === false) {
-      return setAlert(true);
+      return setAlert({boolean: true, type: "regex"});
     } else {
-      setAlert(false);
+      setAlert({boolean: false, type: ""});
     }
     const bankCode = extractBankCode();
     const url =
@@ -29,7 +28,7 @@ function App() {
     const body = `?instNum=${bankCode}`;
     const response = await axios.get(url + body);
     console.log(response);
-    if (response.status === 200) {
+    if (response.status === 200 && !isEmpty(response.data.Item)) {
       setBankData({
         bankCode: response.data.Item.instNum,
         bankName: response.data.Item.instName,
@@ -37,9 +36,17 @@ function App() {
       setShowData(true);
       setRoutingForm("");
       setKey(key + 1);
+    } else if (response.status === 200 && isEmpty(response.data.Item)) {
+      setAlert({boolean: true, type: "notFound"})
+    } else {
+      setAlert({boolean: true, type: "error"})
     }
   };
 
+  const isEmpty = (obj) => {
+    return Object.keys(obj).length === 0;
+  }
+  
   const extractBankCode = () => {
     if (routingForm.includes("-")) {
       return routingForm.split("-")[0];
@@ -83,7 +90,7 @@ function App() {
               (non Canadian wires)
             </div>
           </div>
-          {alert && <RegexAlert key={key} />}
+          {alert.boolean && <ErrorAlert key={key} type={alert.type}/>}
           <div className="routing-form">
             <input
               id="outlined-basic"
@@ -96,13 +103,12 @@ function App() {
             <button
               className="validate-button"
               onClick={sendRequest}
-              disabled={true}
             >
               Validate
             </button>
           </div>
           {showData && (
-            <Paper className="bank-data">
+            <Paper className="bank-data" key={key}>
               <div
                 className="bank-row"
                 style={{
