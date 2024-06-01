@@ -138,7 +138,12 @@ function App() {
                   />
                 </div>
               </div>
-              <div className="bank-row">
+              <div
+                className="bank-row"
+                style={{
+                  marginBottom: "10px",
+                }}
+              >
                 <div className="bank-key">Bank Name:</div>
                 <div className="bank-value">
                   <div style={{ color: "rgb(90, 85, 152)" }}>
@@ -155,8 +160,12 @@ function App() {
                   />
                 </div>
               </div>
-              <div className="bank-row">
-                <div className="bank-key">MICR Code:</div>
+              <div
+                className="bank-row"
+                style={{
+                  marginBottom: "10px",
+                }}
+              >                <div className="bank-key">MICR Code:</div>
                 <div className="bank-value">
                   <div style={{ color: "rgb(90, 85, 152)" }}>
                     {bankData.bankMICR}
@@ -172,8 +181,12 @@ function App() {
                   />
                 </div>
               </div>
-              <div className="bank-row">
-                <div className="bank-key">Address:</div>
+              <div
+                className="bank-row"
+                style={{
+                  marginBottom: "10px",
+                }}
+              >                <div className="bank-key">Address:</div>
                 <div className="bank-value">
                   <div style={{ color: "rgb(90, 85, 152)" }}>
                     {bankData.bankAddress}
@@ -189,8 +202,12 @@ function App() {
                   />
                 </div>
               </div>
-              <div className="bank-row">
-                <div className="bank-key">Zip:</div>
+              <div
+                className="bank-row"
+                style={{
+                  marginBottom: "10px",
+                }}
+              >                <div className="bank-key">Zip:</div>
                 <div className="bank-value">
                   <div style={{ color: "rgb(90, 85, 152)" }}>
                     {bankData.bankZip}
@@ -206,8 +223,12 @@ function App() {
                   />
                 </div>
               </div>
-              <div className="bank-row">
-                <div className="bank-key">City:</div>
+              <div
+                className="bank-row"
+                style={{
+                  marginBottom: "10px",
+                }}
+              >                <div className="bank-key">City:</div>
                 <div className="bank-value">
                   <div style={{ color: "rgb(90, 85, 152)" }}>
                     {bankData.bankCity}
@@ -223,8 +244,12 @@ function App() {
                   />
                 </div>
               </div>
-              <div className="bank-row">
-                <div className="bank-key">Province:</div>
+              <div
+                className="bank-row"
+                style={{
+                  marginBottom: "10px",
+                }}
+              >                <div className="bank-key">Province:</div>
                 <div className="bank-value">
                   <div style={{ color: "rgb(90, 85, 152)" }}>
                     {bankData.bankProvince}
