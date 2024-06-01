@@ -3,7 +3,7 @@
 This is the frontend for the Bank Code API. It's part of a larger AWS project to gain exposure to different AWS services through hands-on experience. This frontend is a React application and is hosted on AWS Amplify.
 
 ## Access the API Frontend
-
+![alt text](image-5.png)
 You can access the API frontend [here](https://master.d192lb2rt8wqcs.amplifyapp.com/).
 
 ## Why AWS Amplify?
